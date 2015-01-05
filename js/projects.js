@@ -35,7 +35,11 @@ var projects = (function () {
   setJqueryMap = function () {
     var $container = stateMap.$container;
 
-    jqueryMap = { $container : $container };
+    jqueryMap = {
+      $container              : $container,
+      $projects_list          : $container.find("#projects-list"),
+      $project-info-container : $container.find("#project-info-container")
+    };
   };
   // End DOM method /setJqueryMap/
 
@@ -44,10 +48,10 @@ var projects = (function () {
   };
   // End DOM method /formatProjectList/
 
-  // Begin DOM method /getProjects/
-  getProjects = function () {
+  // Begin DOM method /populateProjectList/
+  populateProjectList = function () {
   };
-  // Begin DOM method /getProjects/
+  // Begin DOM method /populateProjectList/
   //---------------------- END DOM METHODS ---------------------
 
   //------------------- BEGIN EVENT HANDLERS -------------------
@@ -80,6 +84,7 @@ var projects = (function () {
   initModule = function ( $container ) {
     stateMap.$container = $container;
     setJqueryMap();
+    populateProjectList();
     return true;
   };
   // End public method /initModule/
