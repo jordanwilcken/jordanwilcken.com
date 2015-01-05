@@ -1,0 +1,45 @@
+body {
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: #0095dd;
+}
+
+#wrapper {
+  position: relative;
+  max-width: 900;
+  margin: auto;
+}
+
+#all-my-content {
+  margin-top: 100;
+}
+
+.home-link-container {
+  padding: 10;
+  font-size:24px;
+}
+
+.main-stuff {
+  width: 200;
+  margin: auto;
+  background-color: #dddddd;
+  padding: 20;
+  border: 2px solid #a1a1a1;
+  border-radius: 25px;
+}
+
+.main-link-container {
+  padding: 20px;
+  position: relative;
+}
+
+.main-link {
+  font-size: 24px;
+}
+
+#pretty-image {
+  position: absolute;
+}
