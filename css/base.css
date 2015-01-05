@@ -8,12 +8,12 @@ a {
 }
 
 #wrapper {
-  position: relative;
   max-width: 900;
   margin: auto;
 }
 
 #all-my-content {
+  position: relative;
   margin-top: 100;
 }
 
