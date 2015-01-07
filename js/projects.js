@@ -35,22 +35,19 @@ var projects = (function () {
   setJqueryMap = function () {
     var $container = stateMap.$container;
 
-    jqueryMap = {
-      $container              : $container,
-      $projects_list          : $container.find("#projects-list"),
-      $project-info-container : $container.find("#project-info-container")
-    };
+    jqueryMap = { $container : $container };
   };
   // End DOM method /setJqueryMap/
 
   // Begin DOM method /formatProjectList/
   formatProjectList = function () {
+    var theObject = jqueryMap.$container.find("#projects-list").menu();
   };
   // End DOM method /formatProjectList/
 
   // Begin DOM method /populateProjectList/
-  populateProjectList = function () {
-  };
+  //populateProjectList = function () {
+  //};
   // Begin DOM method /populateProjectList/
   //---------------------- END DOM METHODS ---------------------
 
@@ -84,7 +81,7 @@ var projects = (function () {
   initModule = function ( $container ) {
     stateMap.$container = $container;
     setJqueryMap();
-    populateProjectList();
+    formatProjectList();
     return true;
   };
   // End public method /initModule/

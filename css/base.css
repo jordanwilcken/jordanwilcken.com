@@ -8,13 +8,13 @@ a {
 }
 
 #wrapper {
-  max-width: 900;
+  max-width: 900px;
   margin: auto;
 }
 
 #all-my-content {
   position: relative;
-  margin-top: 100;
+  margin-top: 100px;
 }
 
 .home-link-container {

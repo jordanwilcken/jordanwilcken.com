@@ -1,3 +1,14 @@
 #all-my-content {
   height: 900px;
 }
+
+#projects-list {
+  float: left;
+  width: 25%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.ui-menu-item {
+  cursor: default;
+}
