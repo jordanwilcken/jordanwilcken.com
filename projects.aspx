@@ -32,7 +32,7 @@
                     string message = string.Empty;
                     try
                     {
-                        string projectsPath = Path.Combine(Server.MapPath("~"), "public/projects");
+                        string projectsPath = Path.Combine(Server.MapPath("~"), @"public\projects");
                         foreach (string file in Directory.EnumerateFiles(projectsPath, "*.htm*"))
                         {
                             string fileName = Path.GetFileName(file);
