@@ -34,7 +34,7 @@
                     {
                         string fileName = Path.GetFileName(file);
                         string infoURL = Directory.GetParent(file).Name + "/" + fileName;
-                        string projectName = Regex.Match(fileName, @"\w+(?=\.[A-Za-z]+$)").Value; %>
+                        string projectName = Regex.Match(fileName, @"[^\\]+(?=\.[A-Za-z]+$)").Value; %>
                 <li><%= projectName %></li>
                 <% } %>
             </ul>
