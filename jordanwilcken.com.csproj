@@ -57,15 +57,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="projects.aspx" />
+    <Content Include="public\projects.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="projects.aspx.cs">
+    <Compile Include="public\projects.aspx.cs">
       <DependentUpon>projects.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="projects.aspx.designer.cs">
+    <Compile Include="public\projects.aspx.designer.cs">
       <DependentUpon>projects.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

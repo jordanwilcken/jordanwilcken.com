@@ -38,7 +38,9 @@
                 <li><%= projectName %></li>
                 <% } %>
             </ul>
-            <div id="project-info-container"></div>
+            <div id="project-info-container">
+				<iframe id="the-iframe"><p>An iframe goes here.</p></iframe>
+			</div>
         </div>
     </div>
 </body>
