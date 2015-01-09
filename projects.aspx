@@ -29,28 +29,14 @@
         <div id="all-my-content">
             <ul id="projects-list">
                 <%  
-                    string message = string.Empty;
-                    try
+                    string projectsPath = Path.Combine(Server.MapPath("~"), @"projects");
+                    foreach (string file in Directory.EnumerateFiles(projectsPath, "*.htm*"))
                     {
-                        string projectsPath = Path.Combine(Server.MapPath("~"), @"projects");
-                        foreach (string file in Directory.EnumerateFiles(projectsPath, "*.htm*"))
-                        {
-                            string fileName = Path.GetFileName(file);
-                            string infoURL = Directory.GetParent(file).Name + "/" + fileName;
-                            string projectName = Regex.Match(fileName, @"\w+(?=\.[A-Za-z]+$)").Value; %>
+                        string fileName = Path.GetFileName(file);
+                        string infoURL = Directory.GetParent(file).Name + "/" + fileName;
+                        string projectName = Regex.Match(fileName, @"\w+(?=\.[A-Za-z]+$)").Value; %>
                 <li><%= projectName %></li>
-                <%
-                        }
-                    }
-                %>
-
-                <%
-                    catch (Exception e)
-                    {
-                        message = e.Message;
-                    }   %>
-
-                <h1><%= message %></h1>
+                <% } %>
             </ul>
             <div id="project-info-container"></div>
         </div>
