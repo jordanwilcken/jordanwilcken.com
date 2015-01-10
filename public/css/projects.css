@@ -9,6 +9,14 @@
   overflow-y: auto;
 }
 
+#project-info-container {
+  float: left;
+  width: 74%;
+  height: 100%;
+  border: 1px solid;
+  overflow-y: auto;
+}
+
 .ui-menu-item {
   cursor: default;
 }

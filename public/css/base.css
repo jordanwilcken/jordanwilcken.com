@@ -7,6 +7,10 @@ a {
   color: #0095dd;
 }
 
+p {
+  padding: 0 140px;
+}
+
 #wrapper {
   max-width: 900px;
   margin: auto;

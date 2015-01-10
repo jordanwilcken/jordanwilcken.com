@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="projects.aspx.cs" Inherits="jordanwilcken.com.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="projects2.aspx.cs" Inherits="jordanwilcken.com.projects2" %>
 
 <%@ Import Namespace="System.IO" %>
 
@@ -15,7 +15,7 @@
 
     <!-- third-party javascript -->
     <script src="js/jq/jquery-1.9.1.js"></script>
-    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <%--<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>--%>
 
     <!-- my javascript -->
     <script src="js/projects.js"></script>
@@ -27,8 +27,8 @@
 <body>
     <div id="wrapper">
         <div id="all-my-content">
-            <ul id="projects-list">
-				<li class="ui-widget-header">These are the projects</li>
+            
+				
                 <%  
                     string projectsPath = Path.Combine(Server.MapPath("~"), @"projects");
                     foreach (string file in Directory.EnumerateFiles(projectsPath, "*.htm*"))
@@ -36,9 +36,9 @@
                         string fileName = Path.GetFileName(file);
                         string infoURL = Directory.GetParent(file).Name + "/" + fileName;
                         string projectName = Regex.Match(fileName, @"[^\\]+(?=\.[A-Za-z]+$)").Value; %>
-                <li><%= projectName %></li>
+                <p><a class="project-item"><%= projectName %></a></p>
                 <% } %>
-            </ul>
+            
             <div id="project-info-container">
 			</div>
         </div>
