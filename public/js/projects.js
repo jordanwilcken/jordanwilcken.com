@@ -54,6 +54,16 @@ var projects = (function () {
     $projectNames.click( function (eventObj) {
       var
         onSuccess = function(data) {
+          var parser, returnedDoc, content;
+          
+          parser = new DOMParser();
+          returnedDoc = parser.parseFromString(data, "text/html");
+          content = returnedDoc.getElementById("all-my-content");
+          if (content === null) {
+            throw new Error ("The html received does not contain any elements with id='all-my-content', but it should.");
+          }
+
+          jqueryMap.$projectInfoContainer.html(content.innerHTML);
         },
         onError = function (request, textStatus, error) {
           showErrorContent(jqueryMap.$projectInfoContainer);

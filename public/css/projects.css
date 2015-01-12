@@ -13,8 +13,11 @@
   float: left;
   width: 74%;
   height: 100%;
-  border: 1px solid;
   overflow-y: auto;
+}
+
+#project-info-container p {
+  margin: 10px;
 }
 
 #project-list-header {
