@@ -17,6 +17,17 @@
   overflow-y: auto;
 }
 
-.ui-menu-item {
-  cursor: default;
+#project-list-header {
+  font-size: 30px;
+}
+
+.project-name {
+  display: block;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.view-others {
+  padding-left: 90px;
 }

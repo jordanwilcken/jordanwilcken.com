@@ -27,18 +27,18 @@
 <body>
     <div id="wrapper">
         <div id="all-my-content">
-            <ul id="projects-list">
-				<li class="ui-widget-header">These are the projects</li>
-                <%  
+            <div id="projects-list">
+                <div id="project-list-header">Projects</div>
+				<%  
                     string projectsPath = Path.Combine(Server.MapPath("~"), @"projects");
                     foreach (string file in Directory.EnumerateFiles(projectsPath, "*.htm*"))
                     {
                         string fileName = Path.GetFileName(file);
                         string infoURL = Directory.GetParent(file).Name + "/" + fileName;
                         string projectName = Regex.Match(fileName, @"[^\\]+(?=\.[A-Za-z]+$)").Value; %>
-                <li><%= projectName %></li>
+                <a class="project-name"><%= projectName %></a>
                 <% } %>
-            </ul>
+            </div>
             <div id="project-info-container">
 			</div>
         </div>

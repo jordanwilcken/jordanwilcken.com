@@ -23,7 +23,8 @@ var projects = (function () {
     stateMap  = {},
     jqueryMap = {},
 
-    setJqueryMap, configModule, initModule, getProjects, formatProjectList;
+    setJqueryMap, configModule, initModule, getProjects, formatProjectList,
+    showErrorContent;
   //----------------- END MODULE SCOPE VARIABLES ---------------
 
   //------------------- BEGIN UTILITY METHODS ------------------
@@ -35,13 +36,36 @@ var projects = (function () {
   setJqueryMap = function () {
     var $container = stateMap.$container;
 
-    jqueryMap = { $container : $container };
+    jqueryMap = {
+      $container : $container,
+      $projectInfoContainer : $container.find("#project-info-container")
+    };
   };
   // End DOM method /setJqueryMap/
 
   // Begin DOM method /formatProjectList/
   formatProjectList = function () {
-    var theObject = jqueryMap.$container.find("#projects-list").menu();
+    var $projectNames = jqueryMap.$container.find(".project-name");
+
+    if ($projectNames.length > 5) {
+      throw new Error ("It's time to implement formatting for > 5 project names.");
+    }
+
+    $projectNames.click( function (eventObj) {
+      var
+        onSuccess = function(data) {
+        },
+        onError = function (request, textStatus, error) {
+          showErrorContent(jqueryMap.$projectInfoContainer);
+        };
+
+      $.ajax( {
+          url: "projects/" + eventObj.currentTarget.innerHTML + ".html",
+          data: null,
+          error: onError,
+          success: onSuccess
+      });
+    });
   };
   // End DOM method /formatProjectList/
 
@@ -49,6 +73,12 @@ var projects = (function () {
   //populateProjectList = function () {
   //};
   // Begin DOM method /populateProjectList/
+  
+  // Begin DOM method /showErrorContent/
+  showErrorContent = function ($container) {
+    $container.html("<img src='http://www.quickmeme.com/img/ee/eea1e93546608fbb4e238bff8393da3105dfe414cb0a99f7f2af84f49401539b.jpg'/>");
+  };
+  // Begin DOM method /showErrorContent/
   //---------------------- END DOM METHODS ---------------------
 
   //------------------- BEGIN EVENT HANDLERS -------------------
