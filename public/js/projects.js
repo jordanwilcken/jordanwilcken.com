@@ -13,7 +13,7 @@
   white  : true
 */
 
-/*global $ */
+/*global $,DOMParser */
 
 var projects = (function () {
   'use strict';
@@ -24,7 +24,7 @@ var projects = (function () {
     jqueryMap = {},
 
     setJqueryMap, configModule, initModule, getProjects, formatProjectList,
-    showErrorContent;
+    showErrorContent, adjustProjectInfoLinks;
   //----------------- END MODULE SCOPE VARIABLES ---------------
 
   //------------------- BEGIN UTILITY METHODS ------------------
@@ -32,6 +32,29 @@ var projects = (function () {
   //-------------------- END UTILITY METHODS -------------------
 
   //--------------------- BEGIN DOM METHODS --------------------
+  // Begin DOM method /adjustProjectInfoLinks/
+  adjustProjectInfoLinks = function (contentElement) {
+    var regexp = /^http/;
+
+    $(contentElement).find("img").each( function ( index, element) {
+      var
+        url = element.getAttribute("src");
+
+      if (!regexp.test(url)) {
+        element.setAttribute("src", "projects/" + url );
+      }
+    });
+
+    $(contentElement).find("a").each( function ( index, element) {
+      var url = element.getAttribute("href");
+
+      if (!regexp.test(url)) {
+        element.setAttribute("href", "projects/" + url );
+      }
+    });
+  };
+  // End DOM method /adjustProjectInfoLinks/
+
   // Begin DOM method /setJqueryMap/
   setJqueryMap = function () {
     var $container = stateMap.$container;
@@ -62,6 +85,8 @@ var projects = (function () {
           if (content === null) {
             throw new Error ("The html received does not contain any elements with id='all-my-content', but it should.");
           }
+          
+          adjustProjectInfoLinks(content);
 
           jqueryMap.$projectInfoContainer.html(content.innerHTML);
         },

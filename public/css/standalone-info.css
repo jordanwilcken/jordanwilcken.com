@@ -2,3 +2,8 @@
   padding: 20px 100px;
   background: lavender;
 }
+
+#screenshot {
+  display: block;
+  margin: auto;
+}
